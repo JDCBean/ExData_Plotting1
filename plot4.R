@@ -24,10 +24,11 @@ getwd()
 data$datetime <- strptime(paste(data$Date, data$Time), "%Y-%m-%d %H:%M:%S")
 
 # Plot 4
+png("plot4.png",width=480, height=480)
 
 # Make the figure with 4 separate plots
 
-par(mar=c(4,4,2,2), mfrow=c(2,2)) 
+par(mar=c(4,4,2,2), mfrow=c(2,2), oma=c(0,0,0,0))
 
 # First plot 
 plot(data$datetime,data$Global_active_power,type='l',xlab="",ylab="Global Active Power")
@@ -46,5 +47,4 @@ legend(x="topright",legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3")
 plot(data$datetime,data$Global_reactive_power,type='l',ylim=c(0,.5),
      xlab = "datetime",ylab="Global_reactive_power")
 
-png("plot4.png",width=480, height=480)
 dev.off()
